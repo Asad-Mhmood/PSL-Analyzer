@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PSL Analyzer | Result Prediction</title>
+        <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #385a7c, #f1f1f1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+            color: #233;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        p {
+        text-align: center;
+        margin-top: 5px;
+        color: #233;
+        font-size: 20px;
+        }
+
+
+        form {
+            width: 80%;
+            max-width: 300px;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+            text-align: center;
+        }
+
+        .h {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+            text-align: left;
+            font-size: 12px;
+        }
+
+        .l {
+            width: calc(100% - 18px);
+            box-sizing: border-box;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 12px;
+            display: inline-block;
+        }
+
+        .h-inline {
+            display: inline-block;
+            width: calc(50% - 4px);
+            text-align: left;
+        }
+
+        #a {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        h2 {
+            font-size: 16px;
+            color: #233;
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<h1>PSL Analyzer</h1>
+<p> Result Status </p>
+
+
+    <form action="/perform_result" method="post">
+        <label class="h">Batting Team</label><br>
+        <input class="l" type="text" name="batting" list="teamslist" required>
+        <label class="h">Bowling Team</label><br>
+        <input class="l" type="text" name="bowling" list="teamslist" required><br><br>
+
+
+        <datalist id="teamslist">
+
+            <option value='Quetta Gladiators'></option>
+            <option value= 'Lahore Qalandars'></option>
+            <option value='Multan Sultans'></option>
+            <option value='Karachi Kings'></option>
+            <option value='Multan Sultans'></option>
+            <option value='Lahore Qalandars'></option>
+
+        </datalist>
+
+
+
+
+        <label class="h">Current Score</label><br>
+        <input class="l" type="text" name="score" required><br><br>
+        <label class="h">Overs</label><br>
+        <input class="l" type="text" name="overs" required><br><br>
+        <label class="h">Wickets Out</label><br>
+        <input class="l" type="text" name="wickets" required><br><br>
+        <label class="h">Last Five Overs Score</label><br>
+        <input class="l" type="text" name="lastfive" required><br><br>
+        <label class="h">Target</label><br>
+        <input class="l" type="text" name="target" required><br><br>
+        <input id = "a" type="submit" value="Predict"><br>
+
+
+    </form>
+    <h1>Prediction: {{ pred }}</h1>
+</body>
+</html>

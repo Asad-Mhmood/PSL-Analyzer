@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zameen.com | Login Page</title>
+    <style>
+        body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 60vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to right, #385a7c, #f1f1f1);
+
+
+        }
+
+        h1 {
+        text-align: center;
+        margin-top: 130px;
+        color: #233;
+        font-size: 50px;
+        }
+        h3 {
+        text-align: center;
+        color: #233;
+        font-size: 40px;
+        margin-top: 10px;
+        }
+        form {
+        width: 300px;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+
+        text-align: center; /* Center align the form content */
+        }
+        .h {
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #333;
+        text-align: center;
+        }
+        .l {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 8px;
+        margin-bottom: 10px;
+
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        align-items: center;
+        }
+        #a {
+        width: 30%;
+        box-sizing: border-box;
+        padding: 8px;
+        margin-bottom: 10px;
+
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        align-items: center;
+        }
+
+
+
+
+    </style>
+
+
+</head>
+<body>
+
+    <h1>PSL Analyzer</h1>
+
+    <h3>Login</h3>
+
+    {% if message %}
+        <p style="color:blue">{{ message }}</p>
+    {% endif %}
+
+    <form action="/perform_login" method="post">
+        <label class="h">Email</label><br>
+        <input class="l" type="email" name="user_ka_email" required><br><br>
+        <label class="h">Password</label><br>
+        <input class="l" type="password" name="user_ka_password" required><br><br>
+        <input id = "a" type="submit" value="Login">
+    </form>
+
+    <p>Not a member? <a href="/register">Register Here</a></p>
+
+</body>
+</html>
